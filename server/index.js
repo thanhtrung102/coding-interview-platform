@@ -4,8 +4,13 @@ import { Server } from 'socket.io';
 import cors from 'cors';
 import { v4 as uuidv4 } from 'uuid';
 import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 const httpServer = createServer(app);
@@ -21,6 +26,11 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Serve static files from React app in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(join(__dirname, 'public')));
+}
 
 // Store active sessions in memory (in production, use Redis or database)
 const sessions = new Map();
@@ -71,6 +81,13 @@ app.get('/api/session/:id', (req, res) => {
 
   res.json(session);
 });
+
+// Serve React app for all other routes in production
+if (process.env.NODE_ENV === 'production') {
+  app.get('*', (req, res) => {
+    res.sendFile(join(__dirname, 'public', 'index.html'));
+  });
+}
 
 // Socket.IO connection handling
 io.on('connection', (socket) => {
