@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Editor from '@monaco-editor/react';
 import { io } from 'socket.io-client';
+import { executeCode, initPyodide } from '../utils/codeExecution';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
@@ -101,30 +102,13 @@ function CodeEditor() {
     setOutput('Running...\n');
 
     try {
-      if (language === 'javascript') {
-        // Run JavaScript code
-        const logs = [];
-        const originalLog = console.log;
+      // Use the codeExecution utility for both JavaScript and Python
+      const result = await executeCode(code, language);
 
-        // Capture console.log output
-        console.log = (...args) => {
-          logs.push(args.join(' '));
-        };
-
-        try {
-          // Use Function constructor for safer evaluation
-          const result = new Function(code)();
-          console.log = originalLog;
-
-          const output = logs.length > 0 ? logs.join('\n') : String(result);
-          setOutput(output || 'Code executed successfully (no output)');
-        } catch (error) {
-          console.log = originalLog;
-          setOutput(`Error: ${error.message}`);
-        }
+      if (result.success) {
+        setOutput(result.output);
       } else {
-        // Python execution will be handled in Q5 with Pyodide
-        setOutput('Python execution will be available soon...');
+        setOutput(result.error || 'Execution failed');
       }
     } catch (error) {
       setOutput(`Error: ${error.message}`);
@@ -132,6 +116,23 @@ function CodeEditor() {
       setIsRunning(false);
     }
   };
+
+  // Preload Pyodide when Python is selected
+  useEffect(() => {
+    if (language === 'python') {
+      setOutput('Loading Python runtime...');
+      initPyodide()
+        .then(() => {
+          setOutput('Python ready! Write your code and click Run.');
+        })
+        .catch(error => {
+          console.error('Failed to initialize Python:', error);
+          setOutput('Failed to load Python runtime. Please refresh the page.');
+        });
+    } else {
+      setOutput('');
+    }
+  }, [language]);
 
   const copySessionLink = () => {
     const link = window.location.href;
