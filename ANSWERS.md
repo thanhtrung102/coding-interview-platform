@@ -307,7 +307,29 @@ PORT=5000
 CORS_ORIGIN=https://your-app.onrender.com
 ```
 
-**Status:** 📝 Documented (actual deployment optional)
+**Quick Deploy:**
+
+This project includes `render.yaml` for one-click deployment to Render:
+
+1. Fork the repository on GitHub
+2. Create a Render account at https://render.com
+3. Click "New" → "Blueprint"
+4. Connect your GitHub repository
+5. Click "Apply" - Render automatically builds and deploys
+
+**Comprehensive Guide:**
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions including:
+- Step-by-step Render deployment (recommended)
+- Railway deployment guide
+- Fly.io deployment with CLI
+- Vercel + Render split deployment
+- Environment variable configuration
+- Health check endpoints
+- Troubleshooting common issues
+- Scaling considerations
+
+**Status:** ✅ Documented with comprehensive deployment guide
 
 ---
 
@@ -339,12 +361,15 @@ coding-interview-platform/
 │   └── .env.example
 ├── Dockerfile                   # Multi-stage build
 ├── docker-compose.yml          # Container orchestration
+├── render.yaml                 # Render deployment config
 ├── .dockerignore               # Docker build optimization
 ├── .gitignore                  # Git ignore rules
 ├── package.json                # Root scripts
-├── AGENTS.md                   # AI assistant instructions
-├── ANSWERS.md                  # This file
-└── README.md                   # Documentation
+├── README.md                   # Project overview
+├── ANSWERS.md                  # This file - homework answers
+├── DEPLOYMENT.md               # Deployment guide (Render/Railway/Fly.io)
+├── DEMO_SCRIPT.md              # Video recording script
+└── AGENTS.md                   # AI assistant instructions
 ```
 
 ---
@@ -415,16 +440,38 @@ npm run dev
 
 ## Demo Video
 
-🎥 **Demo Video:** Record a 30-90 second video showing:
-- Creating a session
-- Sharing the link
-- Multiple users editing
-- Code execution (JavaScript and Python)
+🎥 **Demo Video:** [Link to video - Coming soon!]
 
-**Upload to:** LinkedIn, Twitter/X, or YouTube
+**Recording Guide:**
+
+See [DEMO_SCRIPT.md](./DEMO_SCRIPT.md) for comprehensive demo video guidance including:
+- **60-90 second script** with timeline
+- **What to demonstrate:** Session creation, multi-user collaboration, code execution
+- **Code samples:** Ready-to-use JavaScript and Python examples
+- **Recording tips:** Resolution, frame rate, tools (OBS, Loom, QuickTime)
+- **Social media templates:** LinkedIn, Twitter/X, YouTube with hashtags
+- **Post-recording checklist:** Ensure quality before publishing
+
+**Suggested Demo Flow:**
+1. [0:00-0:10] Create a new session
+2. [0:10-0:25] Show multi-user real-time collaboration
+3. [0:25-0:40] Execute JavaScript code
+4. [0:40-0:55] Execute Python code (WASM)
+5. [0:55-1:05] Highlight key features
+6. [1:05-1:15] Closing with GitHub link
+
+---
+
+## Documentation
+
+- **[README.md](./README.md)** - Project overview and quick start
+- **[ANSWERS.md](./ANSWERS.md)** - This file - all homework answers
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Comprehensive deployment guide
+- **[DEMO_SCRIPT.md](./DEMO_SCRIPT.md)** - Video recording script and templates
+- **[AGENTS.md](./AGENTS.md)** - AI assistant workflow
 
 ---
 
 **All 7 questions completed successfully!** 🚀
 
-**Built with AI assistance using Claude Code**
+**Built with AI assistance using [Claude Code](https://claude.com/claude-code)**
