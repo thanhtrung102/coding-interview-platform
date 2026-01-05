@@ -153,14 +153,25 @@ docker-compose up
 
 ## Deployment
 
-This application can be deployed to:
-- **Render** - Recommended for full-stack apps
-- **Railway** - Easy deployment with Docker
-- **Fly.io** - Global deployment
-- **Vercel** - For static frontend (needs separate backend)
-- **Heroku** - Traditional PaaS
+### Quick Deploy to Render (Recommended ⭐)
 
-See [ANSWERS.md](./ANSWERS.md) for deployment details.
+This project includes a `render.yaml` configuration for one-click deployment:
+
+1. Fork this repository
+2. Create a [Render account](https://render.com)
+3. Click "New" → "Blueprint"
+4. Connect your forked repository
+5. Click "Apply" - Render will automatically build and deploy!
+
+Your app will be live at `https://your-app-name.onrender.com` in ~5-10 minutes.
+
+### Other Deployment Options
+
+- **Railway** - Easy deployment with Docker support
+- **Fly.io** - Global edge deployment
+- **Vercel (Frontend) + Render (Backend)** - Separate deployments
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for comprehensive deployment guides and [ANSWERS.md](./ANSWERS.md) for Q&A details.
 
 ## API Endpoints
 
@@ -206,11 +217,24 @@ This is a homework project for AI Dev Tools Zoomcamp. Feel free to fork and expe
 
 MIT
 
+## Demo Video
+
+📹 [Watch Demo Video](link-to-video) - Coming soon!
+
+See [DEMO_SCRIPT.md](./DEMO_SCRIPT.md) for recording guidelines and social media templates.
+
+## Documentation
+
+- **[ANSWERS.md](./ANSWERS.md)** - Homework questions and implementation details
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Comprehensive deployment guide
+- **[DEMO_SCRIPT.md](./DEMO_SCRIPT.md)** - Video recording script and social media templates
+- **[AGENTS.md](./AGENTS.md)** - AI assistant workflow and guidelines
+
 ## Acknowledgments
 
 - Built as part of [DataTalks.Club AI Dev Tools Zoomcamp](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp)
-- Powered by AI assistants (Claude, ChatGPT, GitHub Copilot)
+- Developed with [Claude Code](https://claude.com/claude-code) AI assistance
 
 ---
 
-**🤖 Generated with AI assistance**
+**🤖 Generated with [Claude Code](https://claude.com/claude-code)**
