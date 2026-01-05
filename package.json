@@ -1,0 +1,24 @@
+{
+  "name": "coding-interview-platform",
+  "version": "1.0.0",
+  "description": "Real-time collaborative coding interview platform",
+  "scripts": {
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install",
+    "build": "cd client && npm run build",
+    "test": "cd server && npm test"
+  },
+  "keywords": [
+    "coding-interview",
+    "collaborative",
+    "real-time",
+    "websocket"
+  ],
+  "author": "thanhtrung102",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
