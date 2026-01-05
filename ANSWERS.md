@@ -63,7 +63,16 @@ Or for backend only:
 cd server && npm test
 ```
 
-**Test Framework Used:** Jest with Supertest
+**Test Framework Used:** **Jest** with **Supertest** and **Socket.IO Client**
+
+**Tests Implemented:**
+- ✅ API endpoint tests (GET /, GET /health, POST /api/session, GET /api/session/:id)
+- ✅ WebSocket event tests (join-session, code-change, language-change)
+- ✅ Real-time synchronization tests
+- ✅ Error handling tests
+- ✅ Multi-client collaboration tests
+
+**Test File:** `server/tests/server.test.js`
 
 **Status:** ✅ Implemented
 
